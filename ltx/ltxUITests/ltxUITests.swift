@@ -1,14 +1,14 @@
 //
-//  _____UITests.swift
-//  俄罗斯方块UITests
+//  ltxUITests.swift
+//  ltxUITests
 //
-//  Created by s20151104684 on 18/5/11.
+//  Created by s20151104684 on 18/6/26.
 //  Copyright © 2018年 s20151104684. All rights reserved.
 //
 
 import XCTest
 
-class _____UITests: XCTestCase {
+class ltxUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

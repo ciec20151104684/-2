@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3196DD220A52F2100150FCB"
-               BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.app"
-               BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;"
-               ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+               BlueprintIdentifier = "F396967120E1C73D002171FC"
+               BuildableName = "ltx.app"
+               BlueprintName = "ltx"
+               ReferencedContainer = "container:ltx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3196DEC20A52F2100150FCB"
-               BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;Tests.xctest"
-               BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;Tests"
-               ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+               BlueprintIdentifier = "F396968B20E1C73E002171FC"
+               BuildableName = "ltxTests.xctest"
+               BlueprintName = "ltxTests"
+               ReferencedContainer = "container:ltx.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3196DF720A52F2100150FCB"
-               BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;UITests.xctest"
-               BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;UITests"
-               ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+               BlueprintIdentifier = "F396969620E1C73E002171FC"
+               BuildableName = "ltxUITests.xctest"
+               BlueprintName = "ltxUITests"
+               ReferencedContainer = "container:ltx.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3196DD220A52F2100150FCB"
-            BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.app"
-            BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;"
-            ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+            BlueprintIdentifier = "F396967120E1C73D002171FC"
+            BuildableName = "ltx.app"
+            BlueprintName = "ltx"
+            ReferencedContainer = "container:ltx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3196DD220A52F2100150FCB"
-            BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.app"
-            BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;"
-            ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+            BlueprintIdentifier = "F396967120E1C73D002171FC"
+            BuildableName = "ltx.app"
+            BlueprintName = "ltx"
+            ReferencedContainer = "container:ltx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3196DD220A52F2100150FCB"
-            BuildableName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.app"
-            BlueprintName = "&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;"
-            ReferencedContainer = "container:&#x4fc4;&#x7f57;&#x65af;&#x65b9;&#x5757;.xcodeproj">
+            BlueprintIdentifier = "F396967120E1C73D002171FC"
+            BuildableName = "ltx.app"
+            BlueprintName = "ltx"
+            ReferencedContainer = "container:ltx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

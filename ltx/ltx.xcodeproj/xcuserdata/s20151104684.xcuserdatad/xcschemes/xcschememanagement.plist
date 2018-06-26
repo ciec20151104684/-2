@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>俄罗斯方块.xcscheme</key>
+		<key>ltx.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F3196DD220A52F2100150FCB</key>
+		<key>F396967120E1C73D002171FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3196DEC20A52F2100150FCB</key>
+		<key>F396968B20E1C73E002171FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3196DF720A52F2100150FCB</key>
+		<key>F396969620E1C73E002171FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

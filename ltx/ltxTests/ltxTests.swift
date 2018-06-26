@@ -1,15 +1,15 @@
 //
-//  _____Tests.swift
-//  俄罗斯方块Tests
+//  ltxTests.swift
+//  ltxTests
 //
-//  Created by s20151104684 on 18/5/11.
+//  Created by s20151104684 on 18/6/26.
 //  Copyright © 2018年 s20151104684. All rights reserved.
 //
 
 import XCTest
-@testable import _____
+@testable import ltx
 
-class _____Tests: XCTestCase {
+class ltxTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
