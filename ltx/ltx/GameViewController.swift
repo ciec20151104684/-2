@@ -62,6 +62,66 @@ class GameViewController: UIViewController {
         
     }
 
+    // 几种可能的组合方块
+    self.blockArr = [
+    
+    // 第一种可能出现的组合 Z
+    [
+    Block(X:TETRIS_Cols/2 - 1,Y:0,Color:1),
+    Block(X:TETRIS_Cols/2,Y:0,Color:1),
+    Block(X:TETRIS_Cols/2,Y:1,Color:1),
+    Block(X:TETRIS_Cols/2 + 1,Y:1,Color:1)
+    
+    ],
+    // 第二种可能出现的组合 反Z
+    [
+    Block(X:TETRIS_Cols/2 + 1,Y:0,Color:2),
+    Block(X:TETRIS_Cols/2,Y:0,Color:2),
+    Block(X:TETRIS_Cols/2,Y:1,Color:2),
+    Block(X:TETRIS_Cols/2 - 1,Y:1,Color:2)
+    
+    ],
+    // 第三种可能出现的组合 田
+    [
+    Block(X:TETRIS_Cols/2 - 1,Y:0,Color:3),
+    Block(X:TETRIS_Cols/2,Y:0,Color:3),
+    Block(X:TETRIS_Cols/2 - 1,Y:1,Color:3),
+    Block(X:TETRIS_Cols/2 ,Y:1,Color:3)
+    
+    ],
+    // 第四种可能出现的组合 L
+    [
+    Block(X:TETRIS_Cols/2 - 1,Y:0,Color:4),
+    Block(X:TETRIS_Cols/2 - 1,Y:1,Color:4),
+    Block(X:TETRIS_Cols/2 - 1,Y:2,Color:4),
+    Block(X:TETRIS_Cols/2 ,Y:2,Color:4)
+    
+    ],
+    // 第五种可能出现的组合 J
+    [
+    Block(X:TETRIS_Cols/2,Y:0,Color:5),
+    Block(X:TETRIS_Cols/2,Y:1,Color:5),
+    Block(X:TETRIS_Cols/2,Y:2,Color:5),
+    Block(X:TETRIS_Cols/2 - 1,Y:2,Color:5)
+    
+    ],
+    // 第六种可能出现的组合 ——
+    [
+    Block(X:TETRIS_Cols/2,Y:0,Color:6),
+    Block(X:TETRIS_Cols/2,Y:1,Color:6),
+    Block(X:TETRIS_Cols/2,Y:2,Color:6),
+    Block(X:TETRIS_Cols/2,Y:3,Color:6)
+    
+    ],
+    // 第七种可能出现的组合 土缺一
+    [
+    Block(X:TETRIS_Cols/2,Y:0,Color:7),
+    Block(X:TETRIS_Cols/2-1,Y:1,Color:7),
+    Block(X:TETRIS_Cols/2,Y:1,Color:7),
+    Block(X:TETRIS_Cols/2 + 1,Y:1,Color:7)
+    
+    ],
+    ]
     override var shouldAutorotate: Bool {
         return true
     }
