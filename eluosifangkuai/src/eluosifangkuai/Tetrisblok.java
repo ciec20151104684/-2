@@ -94,25 +94,114 @@ public class Tetrisblok extends JPanel implements KeyListener {
 			if(blow(x,y+1,blockType,turnState)==0) {
 				add(x,y,blockType,turnState);
 				delline();
-				newblock();
+				newblock();   //页面重画
 			}
 			repaint();
 
 		}
+		
+		//新游戏
+		public void newGame() {
+			
+			newblock();
+			newmap();
+			drawall();
+		}
+		
+		//暂停游戏
+		public void pauseGame() {
+			
+			timer.stop();
+		}
+		//继续游戏
+		public void continueGame() {
+			timer.start();
+		}
+		
 
-		private void delline() {
+		//旋转当前方块的方法
+		public void turn() {
+			int tempturnState = turnState;
+			turnState = (turnState + 1) % 4;
+			if(blow(x,y,blockType,turnState)==1) {
+				//可以旋转
+			}
+			if(blow(x,y,blockType,turnState)==0) {
+				//不可以旋转
+				turnState = tempturnState;
+			}
+			repaint();
+		}
+		
+		public void left() {
+			if(blow(x-1,y,blockType,turnState)==1) {
+				x=x-1;
+			}
+			repaint();
+		}
+		
+		public void right() {
+			if(blow(x+1,y,blockType,turnState)==1) {
+				x=x+1;
+			}
+			repaint();
+		}
+		
+		public void down() {
+			if(blow(x,y+1,blockType,turnState)==1) {
+				y=y+1;
+			}
+			if(blow(x,y+1,blockType,turnState)==0) {
+				add(x,y,blockType,turnState);
+				newblock();
+				delline();	
+			}
+			repaint();
+		}
+		
+		
+		//满行消去
+		public void delline() {
+			// TODO Auto-generated method stub
+			int c=0;
+			for(int b=0;b<21;b++) {
+				for(int a=0;a<12;a++) {
+					if(map[a][b]==1) {
+						c+=1;
+						if(c==10) {
+							score +=10;
+							for(int d=b;d>0;d--) {
+								for(int e=0;e<12;e++) {
+									map[e][d]=map[e][d-1];
+								}
+							}
+						}
+					}
+				}
+				
+			c=0;
+			}
+		}
+
+		public void add(int x, int y, int blockType, int turnState) {
 			// TODO Auto-generated method stub
 			
 		}
-
-		private void add(int x, int y, int blockType, int turnState) {
+		
+		
+        //当前方块位置 ?????
+		public int blow(int x, int i, int blockType, int turnState) {
 			// TODO Auto-generated method stub
+			for(int a=0;a<4;a++) {
+				for(int b=0;b<4;b++) {
+					if(((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==1))
+							||((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==2))) {
+						return 0;
+					}
+				}
+			}
 			
-		}
-
-		private int blow(int x, int i, int blockType, int turnState) {
-			// TODO Auto-generated method stub
-			return 0;
+			return 1;
 		}
 
 	}
@@ -172,11 +261,24 @@ public class Tetrisblok extends JPanel implements KeyListener {
 
 
 
-	private int gameover(int x2, int y2) {
+	public int gameover(int x, int y ) {
 		// TODO Auto-generated method stub
+		
+		if(blow(x,y,blockType,turnState)==0) {
+			return 1;
+		}
 		return 0;
 	}
 
+
+
+	
+
+
+	private int blow(int x2, int y2, int blockType2, int turnState2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 	@Override
