@@ -25,10 +25,22 @@ public class Tetrisblok extends JPanel implements KeyListener {
 	private final int shapes[][][]=new int[][][] {
 		//长条型
 		{
-			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0},
-			{0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0},
-			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0},
-			{0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0}
+			{0,0,0,0,
+			 1,1,1,1,
+			 0,0,0,0,
+			 0,0,0,0},
+			{0,1,0,0,
+			 0,1,0,0,
+			 0,1,0,0,
+			 0,1,0,0},
+			{0,0,0,0,
+			 1,1,1,1,
+			 0,0,0,0,
+			 0,0,0,0},
+			{0,1,0,0,
+			 0,1,0,0,
+			 0,1,0,0,
+			 0,1,0,0}
 		},
 		//倒z
 		{
@@ -80,7 +92,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		newblock();
 		newmap();
 		drawall();
-		timer = new Timer(1000,new TimerListener());
+		timer = new Timer(500,new TimerListener());
 		timer.start();
 	}
 	
@@ -96,123 +108,12 @@ public class Tetrisblok extends JPanel implements KeyListener {
 			if(blow(x,y+1,blockType,turnState)==0) {
 				add(x,y,blockType,turnState);
 				delline();
-				newblock();   //页面重画
+				newblock();   
 			}
-			repaint();
-
+			repaint();      //页面重画
 		}
 		
-		//新游戏
-		public void newGame() {
-			
-			newblock();
-			newmap();
-			drawall();
-		}
-		
-		//暂停游戏
-		public void pauseGame() {
-			
-			timer.stop();
-		}
-		//继续游戏
-		public void continueGame() {
-			timer.start();
-		}
-		
-
-		//旋转当前方块的方法
-		public void turn() {
-			int tempturnState = turnState;
-			turnState = (turnState + 1) % 4;
-			if(blow(x,y,blockType,turnState)==1) {
-				//可以旋转
-			}
-			if(blow(x,y,blockType,turnState)==0) {
-				//不可以旋转
-				turnState = tempturnState;
-			}
-			repaint();
-		}
-		
-		public void left() {
-			if(blow(x-1,y,blockType,turnState)==1) {
-				x=x-1;
-			}
-			repaint();
-		}
-		
-		public void right() {
-			if(blow(x+1,y,blockType,turnState)==1) {
-				x=x+1;
-			}
-			repaint();
-		}
-		
-		public void down() {
-			if(blow(x,y+1,blockType,turnState)==1) {
-				y=y+1;
-			}
-			if(blow(x,y+1,blockType,turnState)==0) {
-				add(x,y,blockType,turnState);
-				newblock();
-				delline();	
-			}
-			repaint();
-		}
-		
-		
-		//满行消去
-		public void delline() {
-			// TODO Auto-generated method stub
-			int c=0;
-			for(int b=0;b<21;b++) {
-				for(int a=0;a<12;a++) {
-					if(map[a][b]==1) {
-						c+=1;
-						if(c==10) {
-							score +=10;
-							for(int d=b;d>0;d--) {
-								for(int e=0;e<12;e++) {
-									map[e][d]=map[e][d-1];
-								}
-							}
-						}
-					}
-				}
-				
-			c=0;
-			}
-		}
-
-		public void add(int x, int y, int blockType, int turnState) {
-			// TODO Auto-generated method stub
-			int j=0;
-			for(int a=0;a<4;a++) {
-				for(int b =0;b<4;b++) {
-					if(shapes[blockType][turnState][j]==1) {
-						map[x+b+1][y+a]=shapes[blockType][turnState][j];
-					}
-					j++;
-				}
-			}
-		}
-		
-		
-        //当前方块位置 ?????
-		public int blow(int x, int i, int blockType, int turnState) {
-			// TODO Auto-generated method stub
-			for(int a=0;a<4;a++) {
-				for(int b=0;b<4;b++) {
-					if(((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==1))
-							||((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==2))) {
-						return 0;
-					}
-				}
-			}
-			
-			return 1;
-		}
+        
 
 	}
 
@@ -237,7 +138,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 			newmap();
 			drawall();
 			score =0;
-			JOptionPane.showMessageDialog(null, "game over");
+			JOptionPane.showMessageDialog(null, "GAME OVER");
 			
 		}
 	}
@@ -319,10 +220,21 @@ public class Tetrisblok extends JPanel implements KeyListener {
 	
 
 
-	private int blow(int x2, int y2, int blockType2, int turnState2) {
+	public int blow(int x, int y, int blockType, int turnState) {
 		// TODO Auto-generated method stub
-		return 0;
-	}
+		
+		for(int a=0;a<4;a++) {
+			for(int b=0;b<4;b++) {
+				if(((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==1))
+						||((shapes[blockType][turnState][a*4+b]==1)&&(map[x+b+1][y+a]==2))) {
+					return 0;
+				}
+			}
+		}
+		
+		return 1;
+	    }
+	
 
 
 	
@@ -347,31 +259,6 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		
 		}
 	}
-
-	private void left() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void right() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void turn() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void down() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
@@ -384,24 +271,108 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		
 	}
 
+	public void left() {
+		// TODO Auto-generated method stub
+		if(blow(x-1,y,blockType,turnState)==1) {
+			x=x-1;
+		}
+		repaint();
+	}
 
+
+	public void right() {
+		// TODO Auto-generated method stub
+		if(blow(x+1,y,blockType,turnState)==1) {
+			x=x+1;
+		}
+		repaint();
+	}
+	
+	//旋转当前方块的方法
+	public void turn() {
+		// TODO Auto-generated method stub
+		int tempturnState = turnState;
+		turnState = (turnState + 1) % 4;
+		if(blow(x,y,blockType,turnState)==1) {
+			//可以旋转
+		}
+		if(blow(x,y,blockType,turnState)==0) {
+			//不可以旋转
+			turnState = tempturnState;
+		}
+		repaint();
+	}
+
+
+	public void down() {
+		// TODO Auto-generated method stub
+		if(blow(x,y+1,blockType,turnState)==1) {
+			y=y+1;
+		}
+		if(blow(x,y+1,blockType,turnState)==0) {
+			add(x,y,blockType,turnState);
+			newblock();
+			delline();	
+		}
+		repaint();
+	}
+
+	//满行消去
+	public void delline() {
+		// TODO Auto-generated method stub
+		int c=0;
+		for(int b=0;b<21;b++) {
+			for(int a=0;a<12;a++) {
+				if(map[a][b]==1) {
+					c+=1;
+					if(c==10) {
+						score +=10;
+						for(int d=b;d>0;d--) {
+							for(int e=0;e<12;e++) {
+								map[e][d]=map[e][d-1];
+							}
+						}
+					}
+				}
+			}
+			c=0;
+		}
+	}
+
+
+	public void add(int x, int y, int blockType, int turnState) {
+		// TODO Auto-generated method stub
+		int j=0;
+		for(int a=0;a<4;a++) {
+			for(int b =0;b<4;b++) {
+				if(shapes[blockType][turnState][j]==1) {
+					map[x+b+1][y+a]=shapes[blockType][turnState][j];
+				}
+				j++;
+			}
+		}
+	}
+
+
+	//新游戏
 	public void newGame() {
 		// TODO Auto-generated method stub
-		
+		newblock();
+		newmap();
+		drawall();
 	}
-
-
+	
+	//暂停游戏
 	public void pauseGame() {
 		// TODO Auto-generated method stub
-		
+		timer.stop();
 	}
 
-
+	//继续游戏
 	public void continueGame() {
 		// TODO Auto-generated method stub
-		
+		timer.start();
 	}
-
 }
 
 
