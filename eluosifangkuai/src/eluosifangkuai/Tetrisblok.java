@@ -1,10 +1,12 @@
 package eluosifangkuai;
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -78,7 +80,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		newblock();
 		newmap();
 		drawall();
-		timer = new Timer(500,new TimerListener());
+		timer = new Timer(1000,new TimerListener());
 		timer.start();
 	}
 	
@@ -185,7 +187,15 @@ public class Tetrisblok extends JPanel implements KeyListener {
 
 		public void add(int x, int y, int blockType, int turnState) {
 			// TODO Auto-generated method stub
-			
+			int j=0;
+			for(int a=0;a<4;a++) {
+				for(int b =0;b<4;b++) {
+					if(shapes[blockType][turnState][j]==1) {
+						map[x+b+1][y+a]=shapes[blockType][turnState][j];
+					}
+					j++;
+				}
+			}
 		}
 		
 		
@@ -269,6 +279,40 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		}
 		return 0;
 	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);//调用父类，实现初始化清屏。
+		int i,j;
+		
+		//画当前方块
+		for(j=0;j<16;j++) {
+			if(shapes[blockType][turnState][j]==1) {
+				g.fillRect((j%4+x+1)*15, (j/4+y)*15, 15, 15);
+			}
+		}
+		
+		//画固定好的方块和围墙
+		for(j=0;j<21;j++) {
+			for(i=0;i<12;i++) {
+				if(map[i][j]==1) {
+					g.fillRect(i*15, j*15, 15, 15);
+				}
+				if(map[i][j]==2) {
+					g.fillRect(i*15, j*15, 15, 15);
+				}
+				
+			}
+		}
+		g.drawString("score="+score, 225, 15);
+		g.drawString("下个方块形状", 225, 50);
+		
+		//窗口右侧区域绘制下一个方块
+		for(j=0;j<16;j++) {
+			if(shapes[blockType][turnState][j]==1) {
+				g.fillRect(225+(j%4)*15, (j/4)*15, 15, 15);
+			}
+		}
+	}
 
 
 
@@ -281,11 +325,52 @@ public class Tetrisblok extends JPanel implements KeyListener {
 	}
 
 
+	
+	
+	//键盘监听
 	@Override
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_DOWN:
+		     down();
+		     break;
+		case KeyEvent.VK_UP:
+		     turn();
+		     break;
+		case KeyEvent.VK_RIGHT:
+		     right();
+		     break;
+		case KeyEvent.VK_LEFT:
+		     left();
+		     break;
+		
+		}
+	}
+
+	private void left() {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	private void right() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void turn() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void down() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
@@ -299,4 +384,28 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		
 	}
 
+
+	public void newGame() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void pauseGame() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void continueGame() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+
+
+
+	
+
+
