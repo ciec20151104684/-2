@@ -61,7 +61,7 @@ public class TetrisFrame extends JFrame implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(320, 375);
-		frame.setTitle("俄罗斯方块");
+		frame.setTitle("高级俄罗斯方块");
 		frame.setVisible(true);
 		frame.setResizable(false);
 

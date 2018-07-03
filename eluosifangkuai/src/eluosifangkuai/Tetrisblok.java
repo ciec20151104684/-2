@@ -133,7 +133,9 @@ public class Tetrisblok extends JPanel implements KeyListener {
 			nextblockType=(int) (Math.random() *1000)%7;
 			nextturnState=(int) (Math.random() *1000)%4;
 		}
+		
 		x=4;y=0;
+		
 		if(gameover(x,y)==1) {
 			newmap();
 			drawall();
@@ -151,6 +153,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		for(i=0;i<12;i++) {
 			map[i][20]=2;	
 		}
+		
 		for(j=0;j<21;j++) {
 			map[11][j]=2;
 			map[0][j]=2;
@@ -163,6 +166,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 	public void newmap() {
 		// TODO Auto-generated method stub
 		int i,j;
+		
 		for(i=0;i<12;i++) {
 			for(j=0;j<21;j++) {
 				map[i][j]=0;
@@ -178,6 +182,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		if(blow(x,y,blockType,turnState)==0) {
 			return 1;
 		}
+		
 		return 0;
 	}
 	
@@ -187,6 +192,7 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		
 		//画当前方块
 		for(j=0;j<16;j++) {
+			
 			if(shapes[blockType][turnState][j]==1) {
 				g.fillRect((j%4+x+1)*15, (j/4+y)*15, 15, 15);
 			}
@@ -204,12 +210,12 @@ public class Tetrisblok extends JPanel implements KeyListener {
 				
 			}
 		}
-		g.drawString("score="+score, 225, 15);
-		g.drawString("下个方块形状", 225, 50);
+		g.drawString("score="+score, 225, 100);
+		g.drawString("下个方块形状", 225, 80);
 		
 		//窗口右侧区域绘制下一个方块
 		for(j=0;j<16;j++) {
-			if(shapes[blockType][turnState][j]==1) {
+			if(shapes[nextblockType][nextturnState][j]==1) {
 				g.fillRect(225+(j%4)*15, (j/4)*15, 15, 15);
 			}
 		}
@@ -360,6 +366,8 @@ public class Tetrisblok extends JPanel implements KeyListener {
 		newblock();
 		newmap();
 		drawall();
+		score=0;
+		timer.start();
 	}
 	
 	//暂停游戏
